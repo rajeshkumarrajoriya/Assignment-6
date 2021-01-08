@@ -15,7 +15,7 @@
 \section{Boolean Expression}
 The Boolean expression of\\ $e = A.\overline{B}.\overline{C}.\overline{D} + A.B.\overline{C}.\overline{D} + \overline{A}.\overline{B}.C.\overline{D}+A.\overline{B}.C\overline{D}+A.B.C.\overline{D}+A.\overline{B}.\overline{C}.D$
 \section{K-map Expression (simplified)}
-$e= A.B+A.\overline{D}+\overline{B}.C$
+$e= A.\overline{B}+A.\overline{D}+\overline{B}.C$
 
 \subsection{Combinational Circuit}
 \begin{figure}[h]
@@ -26,14 +26,15 @@ $e= A.B+A.\overline{D}+\overline{B}.C$
 (3,-4.5)node[and port](myand3){}
 (0,-3.5)node[not port](mynot2){}
 (3,0.5)node[and port](myand1){}
-(3,-2)node[and port](myand2){} ;
+(3,-2)node[and port](myand2){}
+(0,-2)node[not port](mynot3){};
 \begin{scope} 
 \ctikzset{tripoles/american or port/height=1.6}
 \draw(6,-2)node[or port, number inputs=3](myor1){};
 \end{scope}
 \draw
 (myand3.in 2)node[left]{C}
-(myand2.in 2)node[left]{B}
+(mynot3.in)node[left]{B} 
 (mynot2.in)node[left]{B}
 (myand2.in 1)node[left]{A}
 (mynot1.in)node[left]{D}
@@ -44,6 +45,7 @@ $e= A.B+A.\overline{D}+\overline{B}.C$
 (myand1.in 1)node[left]{A}
 (mynot2.out)--(myand3.in 1)
 (myor1.out)node[right]{$e$}
+(mynot3.out)--(myand2.in 2)
 ;
 \end{circuitikz}
     \caption{Circuit}
