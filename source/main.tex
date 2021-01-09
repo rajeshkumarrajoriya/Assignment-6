@@ -13,11 +13,11 @@
 
 
 \section{The Boolean Expression For "e"}
-\\ $e = A.\overline{B}.\overline{C}.\overline{D} + A.B.\overline{C}.\overline{D} + \overline{A}.\overline{B}.C.\overline{D}+A.\overline{B}.C\overline{D}+A.B.C.\overline{D}+A.\overline{B}.\overline{C}.D$
+ $e = A.\overline{B}.\overline{C}.\overline{D} + A.B.\overline{C}.\overline{D} + \overline{A}.\overline{B}.C.\overline{D}+A.\overline{B}.C\overline{D}+A.B.C.\overline{D}+A.\overline{B}.\overline{C}.D$
 \section{K-map Expression (simplified)}
 after simplifying the above boolean expression using k-maps it looks like this
 
-$e= \overline{A}.B+A.\overline{D}+\overline{B}.C$
+$e= A.\overline{B}+A.\overline{D}+\overline{B}.C$
 
 \subsection{The Combinational Circuit}
 \begin{figure}[h]
@@ -36,9 +36,9 @@ $e= \overline{A}.B+A.\overline{D}+\overline{B}.C$
 \end{scope}
 \draw
 (myand3.in 2)node[left]{C}
-(mynot3.in)node[left]{A} 
+(mynot3.in)node[left]{B} 
 (mynot2.in)node[left]{B}
-(myand2.in 1)node[left]{B}
+(myand2.in 1)node[left]{A}
 (mynot1.in)node[left]{D}
 (myand1.out)--(myor1.in 1)
 (myand2.out)--(myor1.in 2)
